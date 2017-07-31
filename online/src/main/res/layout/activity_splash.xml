@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#333"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tsxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/gif"
+        android:paddingRight="4px"
+        android:text="click the Angel"
+        android:textColor="#f00"
+        android:textSize="33sp" />
+
+    <android.video.online.gif.GifView
+        android:id="@+id/gv_splash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:id="@+id/iv_ad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/test" />
+</LinearLayout>
