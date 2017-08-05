@@ -3,14 +3,13 @@ package android.video.online.ui.home;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.view.ViewPager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.video.online.BasicActivity;
 import android.video.online.BasicFragment;
 import android.video.online.R;
 import android.video.online.core.BasicPresenter;
 import android.video.online.model.AdModel;
 import android.video.online.model.HomeModel;
-import android.video.online.model.VideoModel;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -34,6 +33,7 @@ public class HomeFragment extends BasicFragment implements HomeContract.View {
 
     private ViewPager mVpHomeAd;
     private RecyclerView mLvHomeNews;
+    private LinearLayout mLlHomeContent;
     private LinearLayout mLlDot;
 
     private List<View> mDots;
@@ -81,8 +81,8 @@ public class HomeFragment extends BasicFragment implements HomeContract.View {
     @Override
     public void init() {
         mVpHomeAd = (ViewPager) activity.findViewById(R.id.vp_home_ad);
-        mLvHomeNews = (RecyclerView) activity.findViewById(R.id.lv_home_news);
         mLlDot = (LinearLayout) activity.findViewById(R.id.ll_dot);
+        mLlHomeContent = (LinearLayout) activity.findViewById(R.id.ll_home_content);
 
         mDots = new ArrayList<>();
 
@@ -107,12 +107,9 @@ public class HomeFragment extends BasicFragment implements HomeContract.View {
     @Override
     public void onSuccess(Call call, HomeModel homeModel) {
 
-        List<VideoModel> videoModels = homeModel.getHot();
-        HomeNewsAdapter newsAdapter = new HomeNewsAdapter(activity, videoModels);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(activity);
-        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        mLvHomeNews.setLayoutManager(layoutManager);
-        mLvHomeNews.setAdapter(newsAdapter);
+        presenter.addClazzType(mLlHomeContent, homeModel);
+        presenter.addFreeVideo(mLlHomeContent, homeModel);
+        presenter.addHotVideo(mLlHomeContent, homeModel);
 
         mAdData = homeModel.getAdvs();
         currentIndex = Integer.MAX_VALUE / 2 - Integer.MAX_VALUE / 2 % mAdData.size();
@@ -154,6 +151,11 @@ public class HomeFragment extends BasicFragment implements HomeContract.View {
         mAdData.add(model);
         showToast("fail");
         handler.sendEmptyMessage(REFRESH_DOTS);
+    }
+
+    @Override
+    public BasicActivity getContext() {
+        return activity;
     }
 
     @Override

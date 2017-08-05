@@ -18,6 +18,15 @@ public class HomeModel implements BasicModel {
     List<VideoModel> videos;
     List<AdModel> advs;
     List<NewsModel> news;
+    List<Category> category;
+
+    public List<Category> getCategory() {
+        return category;
+    }
+
+    public void setCategory(List<Category> category) {
+        this.category = category;
+    }
 
     public List<TypeModel> getTypes() {
         return types;
