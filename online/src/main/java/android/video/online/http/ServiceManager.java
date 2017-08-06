@@ -13,7 +13,7 @@ import java.util.Map;
 
 public class ServiceManager {
     private static ServiceManager instance;
-    private BasicHttp mHttp;
+    private        BasicHttp      mHttp;
 
     private ServiceManager() {
         mHttp = BasicHttp.getBasicHttp();
@@ -64,7 +64,18 @@ public class ServiceManager {
         mHttp.sendPost(HttpUrl.createUserUrl(HttpUrl.PAY_CREATE_ORDERINFO), map, callback);
     }
 
+    public void addShoppingCart(String course_id, String userId, HttpCallback callback) {
+        Map<String, String> map = new HashMap<>();
+        map.put("course_id", course_id);
+        map.put("user_id", userId);
+        mHttp.sendPost(HttpUrl.createUserUrl(HttpUrl.SHOPPING_CART_SAVE), map, callback);
+    }
+
     public void loadVideoList(String id, HttpCallback callback) {
         mHttp.sendGet(HttpUrl.createUrl(HttpUrl.VIDEO_LIST + id), callback);
+    }
+
+    public void queryOrder(String order_no, HttpCallback callback) {
+        mHttp.sendGet(HttpUrl.createUserUrl(HttpUrl.ORDER_QUERY + order_no), callback);
     }
 }

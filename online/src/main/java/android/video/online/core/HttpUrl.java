@@ -21,9 +21,14 @@ public class HttpUrl {
 
     /*******            pay                **********/
     public static final String PAY_CREATE_ORDERINFO = "order/create";
+    public static final String ORDER_QUERY    = "order/queryOrder/order_no/";
+
+    /*******            shopping              ***********/
+    public static final String SHOPPING_CART_SAVE = "shoppingCart/save/";
 
     public static final String LOAD_HOME_NEWS = "xuexi/load_home_data";
-    public static final String LOAD_HOME_ADS = "xuexi/load_home_ads";
+    public static final String LOAD_HOME_ADS  = "xuexi/load_home_ads";
+
     public static String createUrl(String url) {
         return (AppController.BIS_DEBUG ? "http://www.21mmm.com/" : BasicUrl) + url + "?ret_format=json";
     }
@@ -31,4 +36,5 @@ public class HttpUrl {
     public static String createUserUrl(String url){
         return (AppController.BIS_DEBUG ? "http://u.21mmm.com/" : BasicUrl) + url + "?ret_format=json";
     }
+
 }

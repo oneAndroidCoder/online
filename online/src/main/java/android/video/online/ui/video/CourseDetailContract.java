@@ -14,11 +14,21 @@ public class CourseDetailContract {
         void todoShowCourseDetail(CourseDataModel courseDataModel);
 
         Context getContext();
+
+        void onPayFinish(String order_no);
+
+        void onPaySuccess(String status);
+
+        void onAddShoppingSuccess();
     }
 
     interface Presenter extends BasicPresenter<View> {
         void loadData(String id);
 
         void gotoBuyCourse(final String videoId);
+
+        void gotoQueryOrder(String order_no);
+
+        void gotoAddShopping(String course_id);
     }
 }

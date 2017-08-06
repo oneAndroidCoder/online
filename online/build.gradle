@@ -32,17 +32,18 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:24.2.1'
-    compile 'com.android.support:design:24.2.1'
-    testCompile 'junit:junit:4.12'
     compile(name: 'AlivcPlayer', ext: 'aar')
     compile(name: 'AliyunVodPlayer', ext: 'aar')
     compile(name: 'AliyunVodPlayerView', ext: 'aar')
+    compile files('libs/aliyun-oss-sdk-android-2.3.0.jar')
+    compile files('libs/aliyun-vod-upload-android-sdk-1.0.6.jar')
+    compile files('libs/alipaySdk-20170710.jar')
+    compile 'com.android.support:appcompat-v7:24.2.1'
+    compile 'com.android.support:design:24.2.1'
     compile 'com.squareup.okhttp3:okhttp:3.8.1'
     compile 'com.squareup.okhttp3:okhttp-android-support:3.8.1'
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
     compile 'com.alibaba:fastjson:1.2.35'
-    compile files('libs/aliyun-oss-sdk-android-2.3.0.jar')
-    compile files('libs/aliyun-vod-upload-android-sdk-1.0.6.jar')
-    compile files('libs/alipaySdk-20170710.jar')
+    compile 'com.android.support:support-v4:24.2.1'
+    testCompile 'junit:junit:4.12'
 }

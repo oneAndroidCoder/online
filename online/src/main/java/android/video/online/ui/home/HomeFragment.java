@@ -112,8 +112,7 @@ public class HomeFragment extends BasicFragment implements HomeContract.View {
         presenter.addHotVideo(mLlHomeContent, homeModel);
 
         mAdData = homeModel.getAdvs();
-        if (mAdData != null && mAdData.size() > 0)
-            currentIndex = Integer.MAX_VALUE / 2 - Integer.MAX_VALUE / 2 % mAdData.size();
+        currentIndex = Integer.MAX_VALUE / 2 - Integer.MAX_VALUE / 2 % mAdData.size();
 
         mVpHomeAd.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -141,17 +140,10 @@ public class HomeFragment extends BasicFragment implements HomeContract.View {
 //                handler.sendEmptyMessage(REFRESH_DOTS);
             }
         }, delay, period);
-        showToast("success");
     }
 
     @Override
     public void onFail(Call call, IOException e) {
-        AdModel model = new AdModel();
-        model.setPic("http://public.21mmm.com/Home/imgs/logo3.png");
-        model.setPlace("");
-        mAdData.add(model);
-        showToast("fail");
-        handler.sendEmptyMessage(REFRESH_DOTS);
     }
 
     @Override
