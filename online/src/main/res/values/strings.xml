@@ -9,4 +9,13 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="clazz_manage">课目管理</string>
+    <string name="video_manage">视频管理</string>
+    <string name="owner_clazz">购买的课程</string>
+    <string name="my_order">我的订单</string>
+    <string name="my_car">购物车</string>
+    <string name="my_comment">我的评论</string>
+    <string name="my_score">我的评分</string>
 </resources>

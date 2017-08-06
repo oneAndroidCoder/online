@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#aaa"/>
+        android:background="#aaa" />
 
     <TextView
         android:id="@+id/tv_clazz_manage"
@@ -14,14 +14,14 @@
         android:layout_height="45dp"
         android:gravity="center_vertical"
         android:paddingLeft="16dp"
-        android:text="课目管理"
+        android:text="@string/clazz_manage"
         android:textColor="#333"
-        android:textSize="16sp"/>
+        android:textSize="16sp" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#aaa"/>
+        android:background="#aaa" />
 
     <TextView
         android:id="@+id/tv_video_manage"
@@ -29,14 +29,14 @@
         android:layout_height="45dp"
         android:gravity="center_vertical"
         android:paddingLeft="16dp"
-        android:text="视频管理"
+        android:text="@string/video_manage"
         android:textColor="#333"
-        android:textSize="16sp"/>
+        android:textSize="16sp" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#aaa"/>
+        android:background="#aaa" />
 
     <TextView
         android:id="@+id/tv_owner_clazz"
@@ -44,14 +44,14 @@
         android:layout_height="45dp"
         android:gravity="center_vertical"
         android:paddingLeft="16dp"
-        android:text="购买的课程"
+        android:text="@string/owner_clazz"
         android:textColor="#333"
-        android:textSize="16sp"/>
+        android:textSize="16sp" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#aaa"/>
+        android:background="#aaa" />
 
     <TextView
         android:id="@+id/tv_my_order"
@@ -59,14 +59,14 @@
         android:layout_height="45dp"
         android:gravity="center_vertical"
         android:paddingLeft="16dp"
-        android:text="我的订单"
+        android:text="@string/my_order"
         android:textColor="#333"
-        android:textSize="16sp"/>
+        android:textSize="16sp" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#aaa"/>
+        android:background="#aaa" />
 
     <TextView
         android:id="@+id/tv_my_car"
@@ -74,14 +74,14 @@
         android:layout_height="45dp"
         android:gravity="center_vertical"
         android:paddingLeft="16dp"
-        android:text="购物车"
+        android:text="@string/my_car"
         android:textColor="#333"
-        android:textSize="16sp"/>
+        android:textSize="16sp" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#aaa"/>
+        android:background="#aaa" />
 
     <TextView
         android:id="@+id/tv_my_comment"
@@ -89,14 +89,14 @@
         android:layout_height="45dp"
         android:gravity="center_vertical"
         android:paddingLeft="16dp"
-        android:text="我的评论"
+        android:text="@string/my_comment"
         android:textColor="#333"
-        android:textSize="16sp"/>
+        android:textSize="16sp" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#aaa"/>
+        android:background="#aaa" />
 
     <TextView
         android:id="@+id/tv_my_score"
@@ -104,13 +104,13 @@
         android:layout_height="45dp"
         android:gravity="center_vertical"
         android:paddingLeft="16dp"
-        android:text="我的评分"
+        android:text="@string/my_score"
         android:textColor="#333"
-        android:textSize="16sp"/>
+        android:textSize="16sp" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#aaa"/>
+        android:background="#aaa" />
 
 </merge>

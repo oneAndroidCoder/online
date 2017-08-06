@@ -10,11 +10,11 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
-        android:allowBackup="true"
         android:name=".OnlineAppLication"
+        android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
         android:supportsRtl="true"
+        android:theme="@style/AppTheme">
         android:theme="@style/AppTheme">
         <activity
             android:name=".ui.home.HomeActivity"
@@ -26,23 +26,29 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.user.RegisterActivity"></activity>
-        <activity android:name=".ui.user.LoginActivity"></activity>
-        <activity android:name=".ui.video.VideoPlayerActivity"></activity>
-        <activity android:name=".ui.video.CourseDetailActivity"></activity>
-
+        <activity android:name=".ui.user.RegisterActivity" />
+        <activity android:name=".ui.user.LoginActivity" />
+        <activity android:name=".ui.video.VideoPlayerActivity" />
+        <activity android:name=".ui.video.CourseDetailActivity" />
         <activity
             android:name="com.alipay.sdk.app.H5PayActivity"
             android:configChanges="orientation|keyboardHidden|navigation|screenSize"
             android:exported="false"
             android:screenOrientation="behind"
-            android:windowSoftInputMode="adjustResize|stateHidden"></activity>
+            android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
             android:name="com.alipay.sdk.app.H5AuthActivity"
             android:configChanges="orientation|keyboardHidden|navigation"
             android:exported="false"
             android:screenOrientation="behind"
-            android:windowSoftInputMode="adjustResize|stateHidden"></activity>
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity android:name=".ui.user.clazz.ClazzManageActivity" />
+        <activity android:name=".ui.user.video.VideoManageActivity" />
+        <activity android:name=".ui.user.order.OrderListActivity"></activity>
+        <activity android:name=".ui.user.order.ShoppingCarActivity"></activity>
+        <activity android:name=".ui.user.comment.CommentListActivity"></activity>
+        <activity android:name=".ui.user.comment.MyScoreActivity"></activity>
+        <activity android:name=".ui.user.clazz.OwnerClazzActivity"></activity>
     </application>
 
 </manifest>

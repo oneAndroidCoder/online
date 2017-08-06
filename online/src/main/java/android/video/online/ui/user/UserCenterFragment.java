@@ -5,6 +5,13 @@ import android.video.online.BasicFragment;
 import android.video.online.R;
 import android.video.online.core.BasicPresenter;
 import android.video.online.manager.UserManager;
+import android.video.online.ui.user.clazz.ClazzManageActivity;
+import android.video.online.ui.user.clazz.OwnerClazzActivity;
+import android.video.online.ui.user.comment.CommentListActivity;
+import android.video.online.ui.user.comment.MyScoreActivity;
+import android.video.online.ui.user.order.OrderListActivity;
+import android.video.online.ui.user.order.ShoppingCarActivity;
+import android.video.online.ui.user.video.VideoManageActivity;
 import android.view.View;
 import android.widget.TextView;
 
@@ -72,18 +79,25 @@ public class UserCenterFragment extends BasicFragment implements View.OnClickLis
 
                 break;
             case R.id.tv_clazz_manage:
+                startActivity(activity, ClazzManageActivity.class);
                 break;
             case R.id.tv_video_manage:
+                startActivity(activity, VideoManageActivity.class);
                 break;
             case R.id.tv_owner_clazz:
+                startActivity(activity, OwnerClazzActivity.class);
                 break;
             case R.id.tv_my_order:
+                startActivity(activity, OrderListActivity.class);
                 break;
             case R.id.tv_my_car:
+                startActivity(activity, ShoppingCarActivity.class);
                 break;
             case R.id.tv_my_comment:
+                startActivity(activity, CommentListActivity.class);
                 break;
             case R.id.tv_my_score:
+                startActivity(activity, MyScoreActivity.class);
                 break;
         }
     }
