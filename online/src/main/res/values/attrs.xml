@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="Common_Title_layout">
+        <attr name="back_isShow" format="boolean"></attr>
+        <attr name="back_res" format="reference"></attr>
+        <attr name="title_size" format="dimension|reference"></attr>
+        <attr name="title_color" format="color|reference"></attr>
+        <attr name="title_txt" format="string|reference"></attr>
+        <attr name="right_txt" format="string|reference"></attr>
+        <attr name="right_two_txt" format="string|reference"></attr>
+        <attr name="right_txt_color" format="color|reference"></attr>
+        <attr name="right_two_txt_color" format="color|reference"></attr>
+        <attr name="right_size" format="dimension|reference"></attr>
+        <attr name="right_two_size" format="dimension|reference"></attr>
+    </declare-styleable>
+</resources>

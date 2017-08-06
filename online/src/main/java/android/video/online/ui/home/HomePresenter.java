@@ -74,6 +74,9 @@ public class HomePresenter implements HomeContract.Presenter {
     public void addHotVideo(LinearLayout mLlHomeContent, HomeModel homeModel) {
         mLlHomeContent.addView(createFreeVideoTitle("热门课程"));
         List<VideoModel> free = homeModel.getHot();
+        if(free == null){
+            return;
+        }
         for (int i = 0; i < free.size(); i++) {
             mLlHomeContent.addView(createFreeVideoItem(free.get(i)));
         }
@@ -81,6 +84,9 @@ public class HomePresenter implements HomeContract.Presenter {
 
     public void addClazzType(LinearLayout mLlHomeContent, HomeModel homeModel) {
         List<Category> category = homeModel.getCategory();
+        if(category == null){
+            return;
+        }
         RecyclerView recyclerView = new RecyclerView(view.getContext());
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(view.getContext(), 3);
         recyclerView.setLayoutManager(layoutManager);
@@ -91,6 +97,9 @@ public class HomePresenter implements HomeContract.Presenter {
     public void addFreeVideo(LinearLayout mLlHomeContent, HomeModel homeModel) {
         mLlHomeContent.addView(createFreeVideoTitle("免费课堂"));
         List<VideoModel> free = homeModel.getFree();
+        if(free == null){
+            return;
+        }
         for (int i = 0; i < free.size(); i++) {
             mLlHomeContent.addView(createFreeVideoItem(free.get(i)));
         }
