@@ -4,9 +4,12 @@ import android.video.online.BasicActivity;
 import android.video.online.core.BasicPresenter;
 import android.video.online.core.BasicView;
 import android.video.online.model.HomeModel;
+import android.video.online.model.VideoModel;
 import android.widget.LinearLayout;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.Map;
 
 import okhttp3.Call;
 
@@ -34,5 +37,7 @@ public class HomeContract {
         void addFreeVideo(LinearLayout mLlHomeContent, HomeModel homeModel);
 
         void addHotVideo(LinearLayout mLlHomeContent, HomeModel homeModel);
+
+        void addCategory(LinearLayout mLlHomeContent, Map<String, List<VideoModel>> course);
     }
 }

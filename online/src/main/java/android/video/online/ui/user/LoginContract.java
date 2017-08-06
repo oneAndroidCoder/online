@@ -19,5 +19,7 @@ public class LoginContract {
         void gotoRegisterPage();
 
         void gotoLogin(String username, String password);
+
+        void autoLogin();
     }
 }

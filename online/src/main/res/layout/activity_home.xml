@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:openDrawer="start">
-
-    <include layout="@layout/content_home" />
+    android:layout_height="match_parent">
 
     <android.video.online.widget.CommonTitleLayout
         android:id="@+id/ctl_title"
@@ -17,17 +12,28 @@
         app:back_isShow="false"
         app:title_txt="@string/app_name"></android.video.online.widget.CommonTitleLayout>
 
-    <FrameLayout
-        android:id="@+id/fl_content"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/ll_bottom_nav"
-        android:layout_below="@id/ctl_title"></FrameLayout>
-
     <LinearLayout
         android:id="@+id/ll_bottom_nav"
         android:layout_width="match_parent"
         android:layout_height="@dimen/common_height"
         android:layout_alignParentBottom="true"
-        android:orientation="horizontal"></LinearLayout>
+        android:background="@color/main_white"
+        android:orientation="horizontal">
+
+        <include layout="@layout/include_home_bottom" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_above="@+id/ll_bottom_nav"
+        android:background="@color/colorMainBlack" />
+
+    <FrameLayout
+        android:id="@+id/fl_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/ll_bottom_nav"
+        android:layout_below="@id/ctl_title"
+        android:layout_marginBottom="1dp"></FrameLayout>
 </RelativeLayout>

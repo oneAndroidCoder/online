@@ -61,6 +61,7 @@ public class LoginActivity extends BasicActivity implements LoginContract.View {
 
     private void initData() {
         presenter = new LoginPresenter(this);
+        presenter.autoLogin();
     }
 
     @Override
@@ -81,6 +82,7 @@ public class LoginActivity extends BasicActivity implements LoginContract.View {
     @Override
     public void loginSuccess(String result) {
         startActivity(this, HomeActivity.class);
+        finish();
     }
 
     @Override

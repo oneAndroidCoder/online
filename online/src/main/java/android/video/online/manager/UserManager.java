@@ -25,6 +25,9 @@ public class UserManager {
     }
 
     public UserModel getUserModel() {
+        DatabaseAdapter databaseAdapter = new DatabaseAdapter(OnlineAppLication.getContext());
+        String id = (String) SPUtils.getData(OnlineAppLication.getContext(), userId, "-1");
+        userModel = databaseAdapter.findById(id);
         return userModel;
     }
 
@@ -38,5 +41,11 @@ public class UserManager {
         } else {
             databaseAdapter.create(userModel);
         }
+    }
+
+    public void removeCurrentUser() {
+        DatabaseAdapter databaseAdapter = new DatabaseAdapter(OnlineAppLication.getContext());
+        String id = (String) SPUtils.getData(OnlineAppLication.getContext(), userId, "-1");
+        databaseAdapter.remove(id);
     }
 }

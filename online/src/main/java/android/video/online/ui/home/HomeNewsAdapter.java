@@ -5,7 +5,6 @@ import android.video.online.BasicAdapter;
 import android.video.online.BasicViewHolder;
 import android.video.online.R;
 import android.video.online.model.Category;
-import android.video.online.model.CategoryChildren;
 import android.video.online.ui.video.CourseDetailActivity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,7 +27,7 @@ public class HomeNewsAdapter extends BasicAdapter<Category> {
 
     @Override
     protected void setDataView(final BasicViewHolder holder, final Category o) {
-        tvTitle.setText(o.getName());
+        tvTitle.setText(o.getTitle());
         for (int i = 0; i < o.getChildren().size(); i++) {
             llContent.addView(createClazzTypeChildrenItem(o.getChildren().get(i)));
         }
@@ -40,9 +39,9 @@ public class HomeNewsAdapter extends BasicAdapter<Category> {
         });
     }
 
-    private View createClazzTypeChildrenItem(CategoryChildren categoryChildren) {
+    private View createClazzTypeChildrenItem(Category category) {
         TextView textView = new TextView(context);
-        textView.setText(categoryChildren.getName());
+        textView.setText(category.getTitle());
         textView.setTextColor(context.getColor(R.color.main_white_a));
         textView.setPadding(6, 6, 6, 6);
         return textView;

@@ -24,6 +24,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.List;
+import java.util.Map;
 
 import okhttp3.Call;
 import okhttp3.Response;
@@ -74,7 +75,7 @@ public class HomePresenter implements HomeContract.Presenter {
     public void addHotVideo(LinearLayout mLlHomeContent, HomeModel homeModel) {
         mLlHomeContent.addView(createFreeVideoTitle("热门课程"));
         List<VideoModel> free = homeModel.getHot();
-        if(free == null){
+        if (free == null) {
             return;
         }
         for (int i = 0; i < free.size(); i++) {
@@ -82,9 +83,23 @@ public class HomePresenter implements HomeContract.Presenter {
         }
     }
 
+    @Override
+    public void addCategory(LinearLayout mLlHomeContent, Map<String, List<VideoModel>> course) {
+        for (String key : course.keySet()) {
+
+            List<VideoModel> videoModels = course.get(key);
+            if (videoModels == null || videoModels.size() == 0)
+                return;
+            mLlHomeContent.addView(createFreeVideoTitle(key));
+            for (int i = 0; i < videoModels.size(); i++) {
+                mLlHomeContent.addView(createFreeVideoItem(videoModels.get(i)));
+            }
+        }
+    }
+
     public void addClazzType(LinearLayout mLlHomeContent, HomeModel homeModel) {
         List<Category> category = homeModel.getCategory();
-        if(category == null){
+        if (category == null) {
             return;
         }
         RecyclerView recyclerView = new RecyclerView(view.getContext());
@@ -97,7 +112,7 @@ public class HomePresenter implements HomeContract.Presenter {
     public void addFreeVideo(LinearLayout mLlHomeContent, HomeModel homeModel) {
         mLlHomeContent.addView(createFreeVideoTitle("免费课堂"));
         List<VideoModel> free = homeModel.getFree();
-        if(free == null){
+        if (free == null) {
             return;
         }
         for (int i = 0; i < free.size(); i++) {
@@ -122,9 +137,11 @@ public class HomePresenter implements HomeContract.Presenter {
         TextView tvDes = (TextView) inflate.findViewById(R.id.tv_des);
         TextView tvTitle = (TextView) inflate.findViewById(R.id.tv_title);
         ImageView ivIcon = (ImageView) inflate.findViewById(R.id.iv_icon);
+        TextView tvDate = (TextView) inflate.findViewById(R.id.tv_date);
         tvAuthor.setText(videoModel.getTname());
         tvDes.setText(videoModel.getDes());
         tvTitle.setText(videoModel.getTitle());
+        tvDate.setText(videoModel.getCreate_time());
 
         view.getContext().getImageLoader().displayImage(videoModel.getCover(), ivIcon);
         inflate.setOnClickListener(new View.OnClickListener() {

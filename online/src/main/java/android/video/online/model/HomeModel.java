@@ -3,6 +3,7 @@ package android.video.online.model;
 import android.video.online.BasicModel;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Jay on 2017/7/24.
@@ -19,6 +20,15 @@ public class HomeModel implements BasicModel {
     List<AdModel> advs;
     List<NewsModel> news;
     List<Category> category;
+    Map<String, List<VideoModel>> course;
+
+    public Map<String, List<VideoModel>> getCourse() {
+        return course;
+    }
+
+    public void setCourse(Map<String, List<VideoModel>> course) {
+        this.course = course;
+    }
 
     public List<Category> getCategory() {
         return category;

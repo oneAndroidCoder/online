@@ -107,12 +107,15 @@ public class HomeFragment extends BasicFragment implements HomeContract.View {
     @Override
     public void onSuccess(Call call, HomeModel homeModel) {
 
+        mLlHomeContent.removeAllViews();
         presenter.addClazzType(mLlHomeContent, homeModel);
         presenter.addFreeVideo(mLlHomeContent, homeModel);
         presenter.addHotVideo(mLlHomeContent, homeModel);
+        presenter.addCategory(mLlHomeContent, homeModel.getCourse());
 
         mAdData = homeModel.getAdvs();
-        currentIndex = Integer.MAX_VALUE / 2 - Integer.MAX_VALUE / 2 % mAdData.size();
+        if (mAdData != null && mAdData.size() > 0)
+            currentIndex = Integer.MAX_VALUE / 2 - Integer.MAX_VALUE / 2 % mAdData.size();
 
         mVpHomeAd.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override

@@ -1,5 +1,6 @@
 package android.video.online.ui.user;
 
+import android.text.TextUtils;
 import android.util.Log;
 import android.video.online.core.BasicView;
 import android.video.online.core.HttpCallback;
@@ -46,11 +47,11 @@ public class LoginPresenter implements LoginContract.Presenter {
 
             @Override
             protected void onSuccess(Call call, Response response, String result, Object... objects) {
-                if(response.isSuccessful()){
+                if (response.isSuccessful()) {
                     try {
                         JSONObject resultJson = new JSONObject(result);
                         String code = resultJson.optString("code");
-                        if(code.equals("1")){
+                        if (code.equals("1")) {
                             String data = resultJson.optString("data");
                             UserModel userModel = JSON.parseObject(data, UserModel.class);
                             UserManager.getInstance().saveUserModel(userModel);
@@ -58,7 +59,7 @@ public class LoginPresenter implements LoginContract.Presenter {
                         } else {
                             view.loginFail("");
                         }
-                        Log.e("thread",Thread.currentThread().getName());
+                        Log.e("thread", Thread.currentThread().getName());
                     } catch (JSONException e) {
                         e.printStackTrace();
                         view.loginFail("");
@@ -66,5 +67,13 @@ public class LoginPresenter implements LoginContract.Presenter {
                 }
             }
         });
+    }
+
+    @Override
+    public void autoLogin() {
+        UserModel userModel = UserManager.getInstance().getUserModel();
+        if (userModel != null && !TextUtils.isEmpty(userModel.getUser_id()) && !TextUtils.isEmpty(userModel.getPassword())) {
+            view.loginSuccess("auto");
+        }
     }
 }

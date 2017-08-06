@@ -19,6 +19,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 public abstract class BasicFragment extends Fragment implements IBasicActivity {
 
     protected BasicActivity activity;
+    protected View parentLayout;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -29,7 +30,8 @@ public abstract class BasicFragment extends Fragment implements IBasicActivity {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(setLayoutId(), null);
+        parentLayout = inflater.inflate(setLayoutId(), null);
+        return parentLayout;
     }
 
     @Override
