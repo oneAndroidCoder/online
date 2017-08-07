@@ -1,5 +1,6 @@
 package android.video.online.ui.upload;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
@@ -11,6 +12,8 @@ import android.video.online.BasicActivity;
 import android.video.online.R;
 import android.video.online.core.BasicPresenter;
 import android.video.online.model.VideoUploadAuthModel;
+import android.video.online.utils.PermissionsActivity;
+import android.video.online.utils.PermissionsChecker;
 import android.video.online.utils.UriUtils;
 import android.view.View;
 import android.widget.EditText;
@@ -31,6 +34,15 @@ import java.util.List;
  */
 
 public class UploadActivity extends BasicActivity implements View.OnClickListener, UploadContract.View {
+    private static final int REQUEST_CODE = 101; // 请求码
+
+    // 所需的全部权限
+    static final String[] PERMISSIONS = new String[]{
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+    };
+    private PermissionsChecker mPermissionsChecker; // 权限检测器
+
+
     private TextView tvUpload;
     private EditText etVideoTitle;
     private EditText etVideoDes;
@@ -66,6 +78,7 @@ public class UploadActivity extends BasicActivity implements View.OnClickListene
         videoDes = "试试dasf";
         videoTitle = "试试就试试ads";
         courseId = "7";
+        mPermissionsChecker = new PermissionsChecker(this);
         presenter.loadUploadAuth(videoTitle, videoDes, courseId);
     }
 
@@ -78,6 +91,19 @@ public class UploadActivity extends BasicActivity implements View.OnClickListene
         etVideoTitle = (EditText) findViewById(R.id.et_video_title);
         etVideoDes = (EditText) findViewById(R.id.et_video_des);
         etCourseId = (EditText) findViewById(R.id.et_video_courseId);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (mPermissionsChecker.lacksPermissions(PERMISSIONS)) {
+            startPermissionsActivity();
+        }
+    }
+
+    private void startPermissionsActivity() {
+        PermissionsActivity.startActivityForResult(this, REQUEST_CODE, PERMISSIONS);
     }
 
     @Override
@@ -205,8 +231,11 @@ public class UploadActivity extends BasicActivity implements View.OnClickListene
                 String wsiz1e = cursor.getString(5); // 视频大小
                 initUpload(UriUtils.getPath(this, uri));
             }
+        } else if (requestCode == REQUEST_CODE && resultCode == PermissionsActivity.PERMISSIONS_DENIED) {
+            finish();
         }
     }
+
 
     @Override
     public void onUploadAuth(VideoUploadAuthModel model) {

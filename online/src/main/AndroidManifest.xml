@@ -61,6 +61,7 @@
         <activity android:name=".ui.user.comment.MyScoreActivity"></activity>
         <activity android:name=".ui.user.clazz.OwnerClazzActivity"></activity>
         <activity android:name=".ui.upload.UploadActivity"></activity>
+        <activity android:name=".utils.PermissionsActivity"></activity>
     </application>
 
 </manifest>
