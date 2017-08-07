@@ -5,6 +5,7 @@ import android.video.online.BasicFragment;
 import android.video.online.R;
 import android.video.online.core.BasicPresenter;
 import android.video.online.manager.UserManager;
+import android.video.online.ui.upload.UploadActivity;
 import android.video.online.ui.user.clazz.ClazzManageActivity;
 import android.video.online.ui.user.clazz.OwnerClazzActivity;
 import android.video.online.ui.user.comment.CommentListActivity;
@@ -28,6 +29,7 @@ public class UserCenterFragment extends BasicFragment implements View.OnClickLis
     private TextView tvMyCar;
     private TextView tvMyComment;
     private TextView tvMyScore;
+    private View viUpload;
 
     private UserCenterContract.Presenter presenter;
 
@@ -52,6 +54,7 @@ public class UserCenterFragment extends BasicFragment implements View.OnClickLis
         tvMyCar.setOnClickListener(this);
         tvMyComment.setOnClickListener(this);
         tvMyScore.setOnClickListener(this);
+        viUpload.setOnClickListener(this);
     }
 
     private void initData() {
@@ -69,6 +72,7 @@ public class UserCenterFragment extends BasicFragment implements View.OnClickLis
         tvMyCar = (TextView) parentLayout.findViewById(R.id.tv_my_car);
         tvMyComment = (TextView) parentLayout.findViewById(R.id.tv_my_comment);
         tvMyScore = (TextView) parentLayout.findViewById(R.id.tv_my_score);
+        viUpload = parentLayout.findViewById(R.id.ll_upload_layout);
     }
 
     @Override
@@ -98,6 +102,9 @@ public class UserCenterFragment extends BasicFragment implements View.OnClickLis
                 break;
             case R.id.tv_my_score:
                 startActivity(activity, MyScoreActivity.class);
+                break;
+            case R.id.ll_upload_layout:
+                startActivity(activity, UploadActivity.class);
                 break;
         }
     }

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_white"
+    android:orientation="vertical">
+
+    <android.video.online.widget.CommonTitleLayout
+        android:id="@+id/ctl_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title_txt="@string/upload"></android.video.online.widget.CommonTitleLayout>
+
+    <EditText
+        android:id="@+id/et_video_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_height"
+        android:layout_below="@+id/ctl_title"
+        android:text="试试" />
+
+    <EditText
+        android:id="@+id/et_video_des"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_height"
+        android:layout_below="@+id/et_video_title"
+        android:text="试试就试试" />
+
+    <EditText
+        android:id="@+id/et_video_courseId"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_height"
+        android:layout_below="@+id/et_video_des"
+        android:text="1" />
+
+    <TextView
+        android:id="@+id/tv_upload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:padding="@dimen/common_margin"
+        android:text="@string/upload"
+        android:textColor="@color/colorMainBlack"
+        android:textSize="20sp" />
+
+</RelativeLayout>

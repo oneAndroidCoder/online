@@ -42,6 +42,17 @@
             android:exported="false"
             android:screenOrientation="behind"
             android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:noHistory="true"
+            android:launchMode="singleTask" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="tencent你的AppId" />
+            </intent-filter>
+        </activity>
         <activity android:name=".ui.user.clazz.ClazzManageActivity" />
         <activity android:name=".ui.user.video.VideoManageActivity" />
         <activity android:name=".ui.user.order.OrderListActivity"></activity>
@@ -49,6 +60,7 @@
         <activity android:name=".ui.user.comment.CommentListActivity"></activity>
         <activity android:name=".ui.user.comment.MyScoreActivity"></activity>
         <activity android:name=".ui.user.clazz.OwnerClazzActivity"></activity>
+        <activity android:name=".ui.upload.UploadActivity"></activity>
     </application>
 
 </manifest>

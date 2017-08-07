@@ -18,4 +18,5 @@
     <string name="my_car">购物车</string>
     <string name="my_comment">我的评论</string>
     <string name="my_score">我的评分</string>
+    <string name="upload">上传</string>
 </resources>

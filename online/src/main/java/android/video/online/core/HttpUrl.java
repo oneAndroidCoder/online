@@ -18,6 +18,7 @@ public class HttpUrl {
 
     /*******            video             **********/
     public static final String VIDEO_LIST = "Course/index/id/";
+    public static final String VIDEO_UPLOAD = "vod/create_upload_video";
 
     /*******            pay                **********/
     public static final String PAY_CREATE_ORDERINFO = "order/create";
@@ -36,5 +37,4 @@ public class HttpUrl {
     public static String createUserUrl(String url){
         return (AppController.BIS_DEBUG ? "http://u.21mmm.com/" : BasicUrl) + url + "?ret_format=json";
     }
-
 }
