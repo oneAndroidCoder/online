@@ -31,5 +31,10 @@
             android:layout_below="@id/vp_home_ad"
             android:orientation="vertical"></LinearLayout>
 
+        <android.video.online.widget.LoadingView
+            android:id="@+id/ld_loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
     </RelativeLayout>
+
 </ScrollView>

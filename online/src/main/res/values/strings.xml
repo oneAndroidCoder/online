@@ -19,4 +19,11 @@
     <string name="my_comment">我的评论</string>
     <string name="my_score">我的评分</string>
     <string name="upload">上传</string>
+
+    <string name="loading">正在加载中。。。</string>
+    <string name="loading_success">加载成功</string>
+    <string name="loading_failed">加载失败</string>
+    <string name="loading_timeout">加载超时</string>
+
+
 </resources>

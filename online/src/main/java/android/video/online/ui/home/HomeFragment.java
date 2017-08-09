@@ -10,6 +10,8 @@ import android.video.online.R;
 import android.video.online.core.BasicPresenter;
 import android.video.online.model.AdModel;
 import android.video.online.model.HomeModel;
+import android.video.online.widget.LoadingView;
+import android.video.online.widget.listener.SimpleLoadingListener;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -31,6 +33,7 @@ public class HomeFragment extends BasicFragment implements HomeContract.View {
     private HomeAdapter adapter;
     private List<AdModel> mAdData;
 
+    private LoadingView mLoadingView;
     private ViewPager mVpHomeAd;
     private RecyclerView mLvHomeNews;
     private LinearLayout mLlHomeContent;
@@ -80,6 +83,7 @@ public class HomeFragment extends BasicFragment implements HomeContract.View {
 
     @Override
     public void init() {
+        mLoadingView = (LoadingView) activity.findViewById(R.id.ld_loading);
         mVpHomeAd = (ViewPager) activity.findViewById(R.id.vp_home_ad);
         mLlDot = (LinearLayout) activity.findViewById(R.id.ll_dot);
         mLlHomeContent = (LinearLayout) activity.findViewById(R.id.ll_home_content);
@@ -88,7 +92,19 @@ public class HomeFragment extends BasicFragment implements HomeContract.View {
 
         presenter = new HomePresenter(this);
 
+        initListener();
+
+        mLoadingView.show();
         presenter.loadData();
+    }
+
+    private void initListener() {
+        mLoadingView.setLoadingListener(new SimpleLoadingListener() {
+            @Override
+            public void loadRefresh() {
+                presenter.loadData();
+            }
+        });
     }
 
     @Override
@@ -106,7 +122,8 @@ public class HomeFragment extends BasicFragment implements HomeContract.View {
 
     @Override
     public void onSuccess(Call call, HomeModel homeModel) {
-
+        mLoadingView.setStatus(LoadingView.STATUS_LOADING_SUCCESS);
+        mLoadingView.dismiss();
         mLlHomeContent.removeAllViews();
         presenter.addClazzType(mLlHomeContent, homeModel);
         presenter.addFreeVideo(mLlHomeContent, homeModel);
@@ -147,6 +164,7 @@ public class HomeFragment extends BasicFragment implements HomeContract.View {
 
     @Override
     public void onFail(Call call, IOException e) {
+        mLoadingView.setStatus(LoadingView.STATUS_LOADING_FAILED);
     }
 
     @Override

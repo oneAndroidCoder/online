@@ -11,7 +11,16 @@
     <color name="main_white_7">#9fff</color>
     <color name="main_white_5">#9fff</color>
     <color name="main_white_3">#9fff</color>
-    <color name="main_white_1">#9fff</color>
+    <color name="main_white_1">#1fff</color>
+    <color name="main_black_3">#3000</color>
+    <color name="main_black_5">#5000</color>
+    <color name="main_black_7">#7000</color>
+    <color name="main_black_9">#9000</color>
+    <color name="main_black_a">#a000</color>
+    <color name="main_black_c">#c000</color>
+    <color name="main_black_e">#e000</color>
+    <color name="main_black">#f000</color>
     <color name="home_type_bg">#12394c</color>
     <color name="common_title_layout_bg">#6a81f4</color>
+    <color name="translation">#0fff</color>
 </resources>
