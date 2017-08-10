@@ -31,6 +31,24 @@ public class CourseModel implements BasicModel {
     private String pid;
     private String createTime;
     private String display_index;
+    private String category_id;
+    private String position;
+
+    public String getCategory_id() {
+        return category_id;
+    }
+
+    public void setCategory_id(String category_id) {
+        this.category_id = category_id;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
 
     public String getCover() {
         return cover;

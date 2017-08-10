@@ -1,5 +1,6 @@
 package android.video.online.ui.video;
 
+import android.util.Log;
 import android.video.online.core.BasicView;
 import android.video.online.core.HttpCallback;
 import android.video.online.http.ServiceManager;
@@ -31,10 +32,10 @@ public class VideoPlayerPresenter implements VideoPlayerContract.Presenter {
 
     @Override
     public void loadVideoDetail(String videoId) {
-        ServiceManager.getInstance().loadCourseLearn(videoId, new HttpCallback() {
+        ServiceManager.getInstance().loadVideoShow(null, videoId, new HttpCallback() {
             @Override
             protected void onFail(Call call, Object... objects) {
-
+                Log.e("error", call.toString());
             }
 
             @Override

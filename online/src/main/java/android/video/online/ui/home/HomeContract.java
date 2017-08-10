@@ -5,6 +5,7 @@ import android.video.online.core.BasicPresenter;
 import android.video.online.core.BasicView;
 import android.video.online.model.HomeModel;
 import android.video.online.model.VideoModel;
+import android.video.online.widget.LoadingView;
 import android.widget.LinearLayout;
 
 import java.io.IOException;
@@ -30,7 +31,7 @@ public class HomeContract {
     }
 
     interface Presenter extends BasicPresenter<View> {
-        void loadData();
+        void loadData(LoadingView mLoadingView);
 
         void addClazzType(LinearLayout mLlHomeContent, HomeModel homeModel);
 

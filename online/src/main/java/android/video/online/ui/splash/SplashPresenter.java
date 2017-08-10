@@ -26,7 +26,7 @@ public class SplashPresenter implements SplashContract.Presenter {
 
     @Override
     public void initAd() {
-        ServiceManager.getInstance().loadSplashAd(new HttpCallback() {
+        ServiceManager.getInstance().loadSplashAd(null, new HttpCallback() {
 
             @Override
             protected void onFail(Call call, Object... objects) {
@@ -35,7 +35,7 @@ public class SplashPresenter implements SplashContract.Presenter {
 
             @Override
             protected void onSuccess(Call call, Response response, String result, Object... objects) {
-                if(response.isSuccessful()) {
+                if (response.isSuccessful()) {
                     view.initAdView("http://img.zcool.cn/community/01ddeb5542e7de0000019ae958da1c.jpg");
                 } else {
                     view.initAdView("http://img4.imgtn.bdimg.com/it/u=1475813433,3559561004&fm=214&gp=0.jpg");

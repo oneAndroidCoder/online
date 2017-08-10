@@ -28,7 +28,7 @@ public class RegisterPresenter implements RegisterContract.Presenter {
     @Override
     public void gotoRegister(String username, String password, final String repassword) {
 
-        ServiceManager.getInstance().gotoRegister(username, password, repassword, new HttpCallback() {
+        ServiceManager.getInstance().gotoRegister(null, username, password, repassword, new HttpCallback() {
             @Override
             protected void onFail(Call call, Object... objects) {
                 view.registerFail("网络异常");
@@ -36,11 +36,11 @@ public class RegisterPresenter implements RegisterContract.Presenter {
 
             @Override
             protected void onSuccess(Call call, Response response, String result, Object... objects) {
-                if(response.isSuccessful()){
+                if (response.isSuccessful()) {
                     try {
                         JSONObject resultJson = new JSONObject(result);
                         String code = resultJson.optString("code");
-                        if(code.equals("1")){
+                        if (code.equals("1")) {
                             String data = resultJson.optString("data");
                             UserModel userModel = JSON.parseObject(data, UserModel.class);
                             UserManager.getInstance().saveUserModel(userModel);

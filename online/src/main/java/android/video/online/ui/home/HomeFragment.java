@@ -94,15 +94,14 @@ public class HomeFragment extends BasicFragment implements HomeContract.View {
 
         initListener();
 
-        mLoadingView.show();
-        presenter.loadData();
+        presenter.loadData(mLoadingView);
     }
 
     private void initListener() {
         mLoadingView.setLoadingListener(new SimpleLoadingListener() {
             @Override
             public void loadRefresh() {
-                presenter.loadData();
+                presenter.loadData(mLoadingView);
             }
         });
     }
@@ -122,8 +121,6 @@ public class HomeFragment extends BasicFragment implements HomeContract.View {
 
     @Override
     public void onSuccess(Call call, HomeModel homeModel) {
-        mLoadingView.setStatus(LoadingView.STATUS_LOADING_SUCCESS);
-        mLoadingView.dismiss();
         mLlHomeContent.removeAllViews();
         presenter.addClazzType(mLlHomeContent, homeModel);
         presenter.addFreeVideo(mLlHomeContent, homeModel);
@@ -164,7 +161,6 @@ public class HomeFragment extends BasicFragment implements HomeContract.View {
 
     @Override
     public void onFail(Call call, IOException e) {
-        mLoadingView.setStatus(LoadingView.STATUS_LOADING_FAILED);
     }
 
     @Override

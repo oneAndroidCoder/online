@@ -85,6 +85,7 @@ public class LoadingView extends FrameLayout {
                 break;
             case STATUS_LOADING_SUCCESS:
                 tvLoadingStatus.setText(getResources().getString(R.string.loading_success));
+                dismiss();
                 break;
             case STATUS_LOADING_FAILED:
                 tvLoadingStatus.setText(getResources().getString(R.string.loading_failed));

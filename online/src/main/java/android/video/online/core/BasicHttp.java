@@ -1,6 +1,7 @@
 package android.video.online.core;
 
 import android.support.annotation.NonNull;
+import android.video.online.widget.LoadingView;
 
 import java.util.Map;
 
@@ -29,7 +30,11 @@ public class BasicHttp implements IHttp {
     }
 
     @Override
-    public void sendGet(String url, final HttpCallback httpCallback) {
+    public void sendGet(LoadingView loadingView, String url, final HttpCallback httpCallback) {
+        if (loadingView != null) {
+            loadingView.show();
+            httpCallback.setLoadingView(loadingView);
+        }
         final Request request = new Request.Builder().get().url(url).build();
         Call call = client.newCall(request);
         call.enqueue(httpCallback);
@@ -41,7 +46,11 @@ public class BasicHttp implements IHttp {
     }
 
     @Override
-    public void sendPost(String url, Map<String, String> map, final HttpCallback httpCallback) {
+    public void sendPost(LoadingView loadingView, String url, Map<String, String> map, final HttpCallback httpCallback) {
+        if (loadingView != null) {
+            loadingView.show();
+            httpCallback.setLoadingView(loadingView);
+        }
         MediaType type = MediaType.parse("text/json; charset=utf-8");
         FormBody.Builder builder = new FormBody.Builder();
 

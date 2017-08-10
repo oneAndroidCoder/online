@@ -41,22 +41,22 @@ public class UploadPresenter implements UploadContract.Presenter {
 
     @Override
     public void loadUploadAuth(String videoTitle, String videoDes, String courseId) {
-        ServiceManager.getInstance().createUploadVideo(videoTitle, videoDes, courseId, new HttpCallback() {
+        ServiceManager.getInstance().createUploadVideo(null, videoTitle, videoDes, courseId, new HttpCallback() {
             @Override
             protected void onFail(Call call, Object... objects) {
-                Log.e("result",call.toString());
+                Log.e("result", call.toString());
             }
 
             @Override
             protected void onSuccess(Call call, Response response, String result, Object... objects) {
-                Log.e("result",result);
-                if(response.isSuccessful()) {
+                Log.e("result", result);
+                if (response.isSuccessful()) {
                     try {
                         JSONObject resultObj = new JSONObject(result);
-                        if(resultObj.optString("code").equals("1")){
+                        if (resultObj.optString("code").equals("1")) {
                             VideoUploadAuthModel model = JSON.parseObject(resultObj.optString("data"), VideoUploadAuthModel.class);
                             view.onUploadAuth(model);
-                        }else {
+                        } else {
 
                         }
                     } catch (JSONException e) {

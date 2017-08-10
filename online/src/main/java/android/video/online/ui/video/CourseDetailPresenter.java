@@ -37,7 +37,7 @@ public class CourseDetailPresenter implements CourseDetailContract.Presenter {
     @Override
     public void loadData(String id) {
 
-        ServiceManager.getInstance().loadVideoList(id, new HttpCallback() {
+        ServiceManager.getInstance().loadVideoList(null, id, new HttpCallback() {
             @Override
             protected void onFail(Call call, Object... objects) {
 
@@ -50,7 +50,7 @@ public class CourseDetailPresenter implements CourseDetailContract.Presenter {
                     try {
                         JSONObject resultObj = new JSONObject(result);
                         if (resultObj.optString("code").equals("1")) {
-                            String          data            = resultObj.optString("data");
+                            String data = resultObj.optString("data");
                             CourseDataModel courseDataModel = JSON.parseObject(data, CourseDataModel.class);
                             view.todoShowCourseDetail(courseDataModel);
                         }
@@ -65,7 +65,7 @@ public class CourseDetailPresenter implements CourseDetailContract.Presenter {
 
     @Override
     public void gotoBuyCourse(final String videoId) {
-        ServiceManager.getInstance().createOrderInfo(UserManager.getInstance().getUserModel().getUser_id(), videoId, new HttpCallback() {
+        ServiceManager.getInstance().createOrderInfo(null, UserManager.getInstance().getUserModel().getUser_id(), videoId, new HttpCallback() {
             @Override
             protected void onFail(Call call, Object... objects) {
 
@@ -75,10 +75,10 @@ public class CourseDetailPresenter implements CourseDetailContract.Presenter {
             protected void onSuccess(Call call, Response response, String result, Object... objects) {
                 if (response.isSuccessful()) {
                     try {
-                        JSONObject   resultObj = new JSONObject(result);
-                        JSONObject   dataObj   = resultObj.optJSONObject("data");
-                        String       orderInfo = dataObj.optString("pay_info");
-                        final String order_no  = dataObj.optString("order_no");
+                        JSONObject resultObj = new JSONObject(result);
+                        JSONObject dataObj = resultObj.optJSONObject("data");
+                        String orderInfo = dataObj.optString("pay_info");
+                        final String order_no = dataObj.optString("order_no");
                         if (view.getContext() instanceof CourseDetailActivity) {
                             PayUtils.getInstance().gotoPay(((CourseDetailActivity) view.getContext()), orderInfo, new PayUtils.Callback() {
                                 @Override
@@ -102,7 +102,7 @@ public class CourseDetailPresenter implements CourseDetailContract.Presenter {
 
     @Override
     public void gotoQueryOrder(String order_no) {
-        ServiceManager.getInstance().queryOrder(order_no, new HttpCallback() {
+        ServiceManager.getInstance().queryOrder(null, order_no, new HttpCallback() {
 
             @Override
             protected void onFail(Call call, Object... objects) {
@@ -126,7 +126,7 @@ public class CourseDetailPresenter implements CourseDetailContract.Presenter {
 
     @Override
     public void gotoAddShopping(String course_id) {
-        ServiceManager.getInstance().addShoppingCart(course_id, UserManager.getInstance().getUserModel().getUser_id(), new HttpCallback() {
+        ServiceManager.getInstance().addShoppingCart(null, course_id, UserManager.getInstance().getUserModel().getUser_id(), new HttpCallback() {
             @Override
             protected void onFail(Call call, Object... objects) {
 
@@ -134,11 +134,11 @@ public class CourseDetailPresenter implements CourseDetailContract.Presenter {
 
             @Override
             protected void onSuccess(Call call, Response response, String result, Object... objects) {
-                if(response.isSuccessful()){
+                if (response.isSuccessful()) {
                     try {
                         JSONObject resultObj = new JSONObject(result);
-                        String     code      = resultObj.optString("code");
-                        if(!TextUtils.isEmpty(code) &&  code.equals("1")){
+                        String code = resultObj.optString("code");
+                        if (!TextUtils.isEmpty(code) && code.equals("1")) {
                             view.onAddShoppingSuccess();
                         }
                     } catch (JSONException e) {

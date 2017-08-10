@@ -39,7 +39,7 @@ public class LoginPresenter implements LoginContract.Presenter {
 
     @Override
     public void gotoLogin(String username, String password) {
-        ServiceManager.getInstance().gotoLogin(username, password, new HttpCallback() {
+        ServiceManager.getInstance().gotoLogin(null, username, password, new HttpCallback() {
             @Override
             protected void onFail(Call call, Object... objects) {
                 view.loginFail("");

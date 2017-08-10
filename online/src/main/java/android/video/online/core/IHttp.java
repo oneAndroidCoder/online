@@ -1,5 +1,7 @@
 package android.video.online.core;
 
+import android.video.online.widget.LoadingView;
+
 import java.util.Map;
 
 /**
@@ -7,7 +9,7 @@ import java.util.Map;
  */
 
 public interface IHttp {
-    void sendGet(String url, HttpCallback httpCallback);
+    void sendGet(LoadingView loadingView, String url, HttpCallback httpCallback);
 
-    void sendPost(String url, Map<String, String> map, HttpCallback httpCallback);
+    void sendPost(LoadingView loadingView, String url, Map<String, String> map, HttpCallback httpCallback);
 }

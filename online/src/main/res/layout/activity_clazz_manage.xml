@@ -5,8 +5,20 @@
     android:layout_height="match_parent">
 
     <android.video.online.widget.CommonTitleLayout
+        android:id="@+id/ctl_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:title_txt="@string/clazz_manage"></android.video.online.widget.CommonTitleLayout>
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/lv_clazz_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ctl_title" />
+
+    <android.video.online.widget.LoadingView
+        android:id="@+id/ld_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ctl_title" />
 </RelativeLayout>

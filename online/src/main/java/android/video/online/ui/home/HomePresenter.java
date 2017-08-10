@@ -11,6 +11,7 @@ import android.video.online.model.Category;
 import android.video.online.model.HomeModel;
 import android.video.online.model.VideoModel;
 import android.video.online.ui.video.CourseDetailActivity;
+import android.video.online.widget.LoadingView;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,8 +42,8 @@ public class HomePresenter implements HomeContract.Presenter {
     }
 
     @Override
-    public void loadData() {
-        ServiceManager.getInstance().loadHomeData(new HttpCallback() {
+    public void loadData(LoadingView mLoadingView) {
+        ServiceManager.getInstance().loadHomeData(mLoadingView, new HttpCallback() {
 
             @Override
             protected void onFail(Call call, Object... objects) {
