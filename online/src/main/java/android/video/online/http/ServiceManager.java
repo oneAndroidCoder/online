@@ -3,6 +3,7 @@ package android.video.online.http;
 import android.video.online.core.BasicHttp;
 import android.video.online.core.HttpCallback;
 import android.video.online.core.HttpUrl;
+import android.video.online.other.OtherType;
 import android.video.online.widget.LoadingView;
 
 import java.util.HashMap;
@@ -88,4 +89,13 @@ public class ServiceManager {
         mHttp.sendGet(loadingView, HttpUrl.createUserUrl(HttpUrl.COURSE_LISTS), callback);
     }
 
+    public void gotoLoginToQQ(LoadingView loadingView, String device_id, String open_id, String nickname, OtherType type, String union_id, HttpCallback callback) {
+        Map<String, String> map = new HashMap<>();
+        map.put("device_id", device_id);
+        map.put("open_id", open_id);
+        map.put("nickname", nickname);
+        map.put("type", type.typeValue);
+        map.put("union_id", union_id);
+        mHttp.sendPost(loadingView, HttpUrl.createUserUrl(HttpUrl.BIND_LOGIN), map, callback);
+    }
 }

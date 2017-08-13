@@ -12,6 +12,7 @@ public class HttpUrl {
     /******             user            *************/
     public static final String GOTO_REGISTER = "public/handerRegister";
     public static final String GOTO_LOGIN = "public/handerLogin";
+    public static final String BIND_LOGIN = "user/bind";
 
     /*******            course          ***********/
     public static final String COURSE_LISTS = "Course/lists";

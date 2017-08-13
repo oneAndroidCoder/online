@@ -50,8 +50,14 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="tencent你的AppId" />
+                <data android:scheme="101415809" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="orientation|keyboardHidden">
         </activity>
         <activity android:name=".ui.user.clazz.ClazzManageActivity" />
         <activity android:name=".ui.user.video.VideoManageActivity" />
